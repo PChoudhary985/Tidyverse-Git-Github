@@ -173,6 +173,42 @@ date_table <- data.frame(
 date_table
 ```
 
+# Question 5
+
+```{r}
+sample_dates <- c("2018-03-15", "2020-07-20", "2023-01-10", "2025-09-05")
+
+sample_dates <- ymd(sample_dates)
+```
+
+```{r}
+start_dates <- head(sample_dates, -1)
+end_dates <- tail(sample_dates, -1)
+```
+
+```{r}
+start_dates
+end_dates
+```
+```{r}
+date_intervals <- interval(start_dates, end_dates)
+```
+
+```{r}
+months_difference <- time_length(date_intervals, "month")
+weeks_difference <- time_length(date_intervals, "week")
+```
+
+```{r}
+date_differences <- data.frame(start_date = start_dates, end_date = end_dates,months =months_difference,weeks = weeks_difference)
+
+date_differences
+```
+
+
+
+
+
 
 
 
