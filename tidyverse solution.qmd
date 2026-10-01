@@ -204,6 +204,43 @@ date_differences <- data.frame(start_date = start_dates, end_date = end_dates,mo
 
 date_differences
 ```
+# Question 6
+
+```{r}
+date_strings <- list(
+  "2023-06-10",
+  "2022/12/25",
+  "15-Aug-2021",
+  "InvalidDate"
+)
+```
+
+```{r}
+safe_date <- possibly(
+  function(x) {
+    as.Date(parse_date_time(x, orders = c("ymd", "d-b-Y")))
+  },
+  otherwise = as.Date(NA)
+)
+```
+
+```{r}
+parsed_dates <- map(date_strings, safe_date)
+```
+
+```{r}
+parsed_dates
+```
+```{r}
+month_names <- map(parsed_dates, ~ month(.x, label = TRUE, abbr = FALSE))
+
+month_names
+```
+
+
+
+
+
 
 
 
