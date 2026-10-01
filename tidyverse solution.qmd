@@ -42,6 +42,110 @@ summary(dt)
 ```
 
 
+# Question 2
+
+#Prequestion Setup
+```{r}
+sample_means <- vector("numeric", 10000)
+```
+
+```{r}
+length(sample_means)
+```
+
+
+```{r}
+for (i in 1:10000) {sample_means[i] <- mean(rexp(5, rate = 1))}
+```
+
+```{r}
+head(sample_means)
+```
+```{r}
+means_df <- data.frame(sample_means)
+```
+
+
+```{r}
+ggplot(means_df, aes(x = sample_means)) + geom_histogram(bins = 30) + 
+  labs(title = "Distribution",
+    x = "Sample Mean",
+    y = "Frequency")
+```
+# The histogram is skewed to the right.
+
+#2A) 
+
+```{r}
+sample_means_map <- map_dbl(1:10000, function(i) {mean(rexp(5, rate = 1))})
+```
+
+```{r}
+map_df <- data.frame(sample_means_map)
+
+ggplot(map_df, aes(x = sample_means_map)) +
+  geom_histogram(bins = 30) +
+  labs(
+    title = "Distribution Using map_dbl()",
+    x = "Sample Mean",
+    y = "Frequency"
+  )
+```
+
+
+#2B)
+
+```{r}
+replicate(10000, mean(rexp(5, rate = 1)))
+```
+#2C)
+
+```{r}
+sample_sizes <- c(5, 10, 20)
+```
+
+```{r}
+for (n in sample_sizes) {
+  
+  sample_means <- vector("numeric", 10000)
+  
+  for (i in 1:10000) {
+    sample_means[i] <- mean(rexp(n, rate = 1))
+  }
+  
+  means_df <- data.frame(sample_means)
+  
+  p <- ggplot(means_df, aes(x = sample_means)) +
+    geom_histogram(bins = 30) +
+    labs(
+      title = paste("Sample Size =", n),
+      x = "Sample Mean",
+      y = "Frequency"
+    )
+  
+  print(p)
+}
+```
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
