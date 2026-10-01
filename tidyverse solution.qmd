@@ -15,6 +15,11 @@ editor: visual
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(tidyverse)
+```
+
+
 # Question 1
 
 ```{r}
