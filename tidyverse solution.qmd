@@ -1,9 +1,15 @@
+
 ---
-title: "tidyverse hw datascience"
+title: "Homework Tidyverse"
+subtitle: "Hamid Semiyari"
 author: "Choudhary"
 date: "2026-10-01"
-output: pdf_document
+format:
+  html:
+    embed-resources: true
+editor: visual
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
