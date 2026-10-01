@@ -1,0 +1,47 @@
+---
+title: "tidyverse hw datascience"
+author: "Choudhary"
+date: "2026-10-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 1
+
+```{r}
+tribble( ~x,    ~y,    ~w,    ~z,
+              210,   300,   220,   180,
+              102,   100,   119,   187,
+              176,   175,   188,   173,
+              87,    95,   91,     94,
+              202,   210,  234,    218,
+              110,   122,  131,    128,
+) -> dt
+```
+
+#A) 
+
+```{r}
+map(dt, mean)
+```
+#B)
+```{r}
+map(dt,sd)
+```
+#C)
+```{r}
+map(dt, sqrt)
+```
+#D) 
+
+```{r}
+summary(dt)
+```
+
+
+
+
+
