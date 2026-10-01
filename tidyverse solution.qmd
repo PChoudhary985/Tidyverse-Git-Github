@@ -139,6 +139,45 @@ for (i in seq_along(mtcars)) {
 names(output) <- names(mtcars)
 output
 ```
+# Question 4
+
+```{r}
+pacman::p_load(tidyverse, gapminder, broom, lubridate)
+```
+
+```{r}
+dates <- seq.Date(
+  from = as.Date("2015-01-01"),
+  to = as.Date("2025-12-31"),
+  by = "2 months"
+)
+```
+
+```{r}
+dates
+```
+
+```{r}
+year(dates)
+quarter(dates)
+isoweek(dates)
+```
+```{r}
+date_table <- data.frame(
+  date = dates,
+  year = year(dates),
+  quarter = quarter(dates),
+  iso_week = isoweek(dates)
+)
+
+date_table
+```
+
+
+
+
+
+
 
 
 
