@@ -74,6 +74,7 @@ ggplot(means_df, aes(x = sample_means)) + geom_histogram(bins = 30) +
 ```
 # The histogram is skewed to the right.
 
+#Question 2
 #2A) 
 
 ```{r}
@@ -127,10 +128,18 @@ for (n in sample_sizes) {
 }
 ```
 
-
+# Question 3
 ```{r}
+output <- vector("double", ncol(mtcars))
 
+for (i in seq_along(mtcars)) {
+  output[[i]] <- sd(mtcars[[i]])
+}
+
+names(output) <- names(mtcars)
+output
 ```
+
 
 
 
